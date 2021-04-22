@@ -8,4 +8,8 @@ describe('when the GithubSearch component is mounted', () => {
     const {getByRole} = render(<GithubSearch />)
     getByRole('heading', {name: /github repositories list/i})
   })
+
+  it('must be an input text with label "filter by" field', () => {
+    
+  })
 })
