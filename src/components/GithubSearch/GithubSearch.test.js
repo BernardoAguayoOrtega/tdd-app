@@ -10,6 +10,8 @@ describe('when the GithubSearch component is mounted', () => {
   })
 
   it('must be an input text with label "filter by" field', () => {
-    
+    const {getByLabelText} = render(<GithubSearch />)
+
+    expect(getByLabelText(/filter by/)).not.toBeNull()
   })
 })
