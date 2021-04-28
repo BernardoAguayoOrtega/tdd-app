@@ -14,4 +14,9 @@ describe('when the GithubSearch component is mounted', () => {
 
     expect(getByLabelText(/filter by/)).not.toBeNull()
   })
+
+  it('must be a search button', () => {
+    const {getByRole} = render(<GithubSearch />)
+    expect(getByRole('button', {name: /search/i})).not.toBeNull()
+  })
 })
