@@ -19,4 +19,9 @@ describe('when the GithubSearch component is mounted', () => {
     const {getByRole} = render(<GithubSearch />)
     expect(getByRole('button', {name: /search/i})).not.toBeNull()
   })
+
+  it('must be a initial message please provide a search option and click in the search button', () => {
+    const {getByText} = render(<GithubSearch />)
+    getByText(/please provide a search option and click in the search button/i)
+  })
 })

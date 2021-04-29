@@ -10,8 +10,13 @@ export const GithubSearch = () => (
         <TextField fullWidth label="filter by" id="filter by" />
       </Grid>
       <Grid item md={3} xs={12}>
-        <Button fullWidth color="primary" variant="contained">Search</Button>
+        <Button fullWidth color="primary" variant="contained">
+          Search
+        </Button>
       </Grid>
     </Grid>
+    <Typography>
+      Please provide a search option and click in the search button
+    </Typography>
   </Container>
 )
