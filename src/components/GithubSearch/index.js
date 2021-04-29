@@ -11,10 +11,10 @@ import {useState} from 'react'
 export const GithubSearch = () => {
   const [isSearching, setIsSearching] = useState(false)
 
-  const handleClick = event => {
-    console.log('click')
-    event.preventDefault()
+  const handleClick = async () => {
     setIsSearching(true)
+    await Promise.resolve()
+    setIsSearching(false)
   }
 
   return (

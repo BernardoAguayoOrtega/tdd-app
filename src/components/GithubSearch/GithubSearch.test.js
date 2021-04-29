@@ -1,5 +1,5 @@
 import React from 'react'
-import {fireEvent, render} from '@testing-library/react'
+import {fireEvent, render, waitFor} from '@testing-library/react'
 
 import {GithubSearch} from './index'
 
@@ -26,12 +26,13 @@ describe('when the GithubSearch component is mounted', () => {
   })
 })
 
-describe('when the developer does a search', () => {
+describe('when the developer does a search', async () => {
   it('the search button should be disabled until the search is done', () => {
     const {getByRole} = render(<GithubSearch />)
     const searchButton = getByRole('button', {name: /search/i})
     expect(searchButton).not.toBeDisabled()
     fireEvent.click(searchButton)
     expect(searchButton).toBeDisabled()
+    await waitFor(() => expect(searchButton).not.toBeDisabled())
   })
 })
