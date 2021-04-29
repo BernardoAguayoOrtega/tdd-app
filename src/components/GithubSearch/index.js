@@ -1,4 +1,11 @@
-import {Typography, TextField, Button, Container, Grid} from '@material-ui/core'
+import {
+  Typography,
+  TextField,
+  Button,
+  Container,
+  Grid,
+  Box,
+} from '@material-ui/core'
 
 export const GithubSearch = () => (
   <Container>
@@ -15,8 +22,15 @@ export const GithubSearch = () => (
         </Button>
       </Grid>
     </Grid>
-    <Typography>
-      Please provide a search option and click in the search button
-    </Typography>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      height="100"
+    >
+      <Typography>
+        Please provide a search option and click in the search button
+      </Typography>
+    </Box>
   </Container>
 )
