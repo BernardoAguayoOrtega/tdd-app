@@ -26,13 +26,26 @@ describe('when the GithubSearch component is mounted', () => {
   })
 })
 
-describe('when the developer does a search', async () => {
-  it('the search button should be disabled until the search is done', () => {
+describe('when the developer does a search', () => {
+  it('the search button should be disabled until the search is done', async () => {
     const {getByRole} = render(<GithubSearch />)
     const searchButton = getByRole('button', {name: /search/i})
     expect(searchButton).not.toBeDisabled()
     fireEvent.click(searchButton)
     expect(searchButton).toBeDisabled()
     await waitFor(() => expect(searchButton).not.toBeDisabled())
+  })
+
+  it('the data should be displayed as a sticky table', async () => {
+    const {getByRole, queryByText} = render(<GithubSearch />)
+    const searchButton = getByRole('button', {name: /search/i})
+    fireEvent.click(searchButton)
+    await waitFor(() =>
+      expect(
+        queryByText(
+          /please provide a search option and click in the search button/i,
+        ),
+      ).toBeNull(),
+    )
   })
 })

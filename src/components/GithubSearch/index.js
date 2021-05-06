@@ -10,11 +10,13 @@ import {useState} from 'react'
 
 export const GithubSearch = () => {
   const [isSearching, setIsSearching] = useState(false)
+  const [isSearchApplied, setIsSearchApplied] = useState(false)
 
   const handleClick = async () => {
     setIsSearching(true)
     await Promise.resolve()
     setIsSearching(false)
+    setIsSearchApplied(true)
   }
 
   return (
@@ -38,16 +40,20 @@ export const GithubSearch = () => {
           </Button>
         </Grid>
       </Grid>
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        height="100"
-      >
-        <Typography>
-          Please provide a search option and click in the search button
-        </Typography>
-      </Box>
+      {isSearchApplied ? (
+        <table />
+      ) : (
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height="100"
+        >
+          <Typography>
+            Please provide a search option and click in the search button
+          </Typography>
+        </Box>
+      )}
     </Container>
   )
 }
