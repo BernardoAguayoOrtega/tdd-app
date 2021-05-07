@@ -58,13 +58,14 @@ describe('when the developer does a search', () => {
 
     const table = await findByRole('table')
     const tableHeaders = within(table).getAllByRole('columnheader')
+    const [repository, stars, forks, openIssues, updateAt] = tableHeaders
 
     expect(tableHeaders).toHaveLength(5)
 
-    expect(tableHeaders[0]).toHaveTextContent(/Repository/i)
-    expect(tableHeaders[1]).toHaveTextContent(/stars/i)
-    expect(tableHeaders[2]).toHaveTextContent(/forks/i)
-    expect(tableHeaders[3]).toHaveTextContent(/open issues/i)
-    expect(tableHeaders[4]).toHaveTextContent(/update at/i)
+    expect(repository).toHaveTextContent(/Repository/i)
+    expect(stars).toHaveTextContent(/stars/i)
+    expect(forks).toHaveTextContent(/forks/i)
+    expect(openIssues).toHaveTextContent(/open issues/i)
+    expect(updateAt).toHaveTextContent(/update at/i)
   })
 })
