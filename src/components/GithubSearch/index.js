@@ -41,7 +41,17 @@ export const GithubSearch = () => {
         </Grid>
       </Grid>
       {isSearchApplied ? (
-        <table />
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+        </table>
       ) : (
         <Box
           display="flex"

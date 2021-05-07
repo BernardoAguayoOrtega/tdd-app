@@ -1,5 +1,5 @@
 import React from 'react'
-import {fireEvent, render, waitFor} from '@testing-library/react'
+import {fireEvent, render, waitFor, within} from '@testing-library/react'
 
 import {GithubSearch} from './index'
 
@@ -47,5 +47,18 @@ describe('when the developer does a search', () => {
         ),
       ).toBeNull(),
     )
+
+    expect(getByRole('table')).not.toBeNull()
+  })
+
+  it('the table headers must contain: Repository, stars, forks, open issues and update at', async () => {
+    const {getByRole, findByRole} = render(<GithubSearch />)
+    const searchButton = getByRole('button', {name: /search/i})
+    fireEvent.click(searchButton)
+
+    const table = await findByRole('table')
+    const tableHeaders = within(table).getAllByRole('columnheader')
+
+    expect(tableHeaders).toHaveLength(5)
   })
 })
