@@ -44,11 +44,11 @@ export const GithubSearch = () => {
         <table>
           <thead>
             <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
+              <th>Repository</th>
+              <th>stars</th>
+              <th>forks</th>
+              <th>open issues</th>
+              <th>update at</th>
             </tr>
           </thead>
         </table>

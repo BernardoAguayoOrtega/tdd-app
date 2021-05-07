@@ -60,5 +60,11 @@ describe('when the developer does a search', () => {
     const tableHeaders = within(table).getAllByRole('columnheader')
 
     expect(tableHeaders).toHaveLength(5)
+
+    expect(tableHeaders[0]).toHaveTextContent(/Repository/i)
+    expect(tableHeaders[1]).toHaveTextContent(/stars/i)
+    expect(tableHeaders[2]).toHaveTextContent(/forks/i)
+    expect(tableHeaders[3]).toHaveTextContent(/open issues/i)
+    expect(tableHeaders[4]).toHaveTextContent(/update at/i)
   })
 })
