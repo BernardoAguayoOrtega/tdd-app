@@ -78,5 +78,13 @@ describe('when the developer does a search', () => {
     const tableCells = within(table).getAllByRole('cell')
 
     expect(tableCells).toHaveLength(5)
+
+    const [repository, stars, forks, openIssues, updateAt] = tableCells
+
+    expect(repository).toHaveTextContent(/test/i)
+    expect(stars).toHaveTextContent(/5/)
+    expect(forks).toHaveTextContent(/4/)
+    expect(openIssues).toHaveTextContent(/3/)
+    expect(updateAt).toHaveTextContent(/2/)
   })
 })

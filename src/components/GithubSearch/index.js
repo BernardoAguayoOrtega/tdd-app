@@ -33,11 +33,11 @@ export const GithubSearch = () => {
         </thead>
         <tbody>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>test</td>
+            <td>5</td>
+            <td>4</td>
+            <td>3</td>
+            <td>2</td>
           </tr>
         </tbody>
       </table>
