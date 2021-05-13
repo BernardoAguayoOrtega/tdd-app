@@ -19,6 +19,32 @@ export const GithubSearch = () => {
     setIsSearchApplied(true)
   }
 
+  const renderContent = () =>
+    isSearchApplied ? (
+      <table>
+        <thead>
+          <tr>
+            <th>Repository</th>
+            <th>stars</th>
+            <th>forks</th>
+            <th>open issues</th>
+            <th>update at</th>
+          </tr>
+        </thead>
+      </table>
+    ) : (
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        height="100"
+      >
+        <Typography>
+          Please provide a search option and click in the search button
+        </Typography>
+      </Box>
+    )
+
   return (
     <Container>
       <Typography variant="h3" component="h1">
@@ -40,30 +66,7 @@ export const GithubSearch = () => {
           </Button>
         </Grid>
       </Grid>
-      {isSearchApplied ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Repository</th>
-              <th>stars</th>
-              <th>forks</th>
-              <th>open issues</th>
-              <th>update at</th>
-            </tr>
-          </thead>
-        </table>
-      ) : (
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          height="100"
-        >
-          <Typography>
-            Please provide a search option and click in the search button
-          </Typography>
-        </Box>
-      )}
+      {renderContent()}
     </Container>
   )
 }
