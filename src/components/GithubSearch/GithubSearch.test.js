@@ -78,6 +78,7 @@ describe('when the developer does a search', () => {
     const tableCells = within(table).getAllByRole('cell')
 
     expect(tableCells).toHaveLength(5)
+    expect(within(table).getByRole('img', {name: /test/}))
 
     const [repository, stars, forks, openIssues, updateAt] = tableCells
 
