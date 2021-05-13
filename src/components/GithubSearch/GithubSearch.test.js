@@ -68,4 +68,15 @@ describe('when the developer does a search', () => {
     expect(openIssues).toHaveTextContent(/open issues/i)
     expect(updateAt).toHaveTextContent(/update at/i)
   })
+
+  it('each table result must contain: owner avatar image, name, stars, updated at, forks, open issues', async () => {
+    const {getAllByRole, getByRole, findByRole} = render(<GithubSearch />)
+    const searchButton = getByRole('button', {name: /search/i})
+    fireEvent.click(searchButton)
+
+    const table = await findByRole('table')
+    const tableCells = within(table).getAllByRole('cell')
+
+    expect(tableCells).toHaveLength(5)
+  })
 })
