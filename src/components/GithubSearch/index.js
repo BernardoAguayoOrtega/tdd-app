@@ -36,7 +36,9 @@ export const GithubSearch = () => {
         </thead>
         <tbody>
           <tr>
-            <td>test</td>
+            <td>
+              <a href="https://localhost:3000/test">test</a>
+            </td>
             <td>5</td>
             <td>4</td>
             <td>3</td>

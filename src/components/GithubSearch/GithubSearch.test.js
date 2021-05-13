@@ -88,4 +88,17 @@ describe('when the developer does a search', () => {
     expect(openIssues).toHaveTextContent(/3/)
     expect(updateAt).toHaveTextContent(/2/)
   })
+
+  it('should have a link that opens in a new table', async () => {
+    const {getAllByRole, getByRole, findByRole} = render(<GithubSearch />)
+    const searchButton = getByRole('button', {name: /search/i})
+    fireEvent.click(searchButton)
+
+    const table = await findByRole('table')
+
+    expect(within(table).getByText(/test/i).closest('a')).toHaveAttribute(
+      'href',
+      'https://localhost:3000/test',
+    )
+  })
 })
