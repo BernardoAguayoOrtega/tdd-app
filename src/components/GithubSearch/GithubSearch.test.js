@@ -76,13 +76,11 @@ describe('when the developer does a search', () => {
 
     const table = await findByRole('table')
     const tableCells = within(table).getAllByRole('cell')
-    const firstCell = within(tableCells[0])
 
     expect(tableCells).toHaveLength(5)
-    expect(firstCell.getByRole('img', {name: /test/}))
-
     const [repository, stars, forks, openIssues, updateAt] = tableCells
 
+    expect(within(repository).getByRole('img', {name: /test/}))
     expect(repository).toHaveTextContent(/test/i)
     expect(stars).toHaveTextContent(/5/)
     expect(forks).toHaveTextContent(/4/)
