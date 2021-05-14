@@ -24,10 +24,7 @@ export const GithubSearch = () => {
       <table>
         <thead>
           <tr>
-            <th>
-              <img alt="test" src="" />
-              Repository
-            </th>
+            <th>Repository</th>
             <th>stars</th>
             <th>forks</th>
             <th>open issues</th>
@@ -37,6 +34,7 @@ export const GithubSearch = () => {
         <tbody>
           <tr>
             <td>
+              <img alt="test" src="" />
               <a href="https://localhost:3000/test">test</a>
             </td>
             <td>5</td>
